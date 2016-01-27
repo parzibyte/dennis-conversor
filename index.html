@@ -13,11 +13,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h4 class="text-center">¡Hola!, me llamo Dennis y puedo convertir unidades.<br>
-                <strong>Nota:</strong>
-                Por el momento no entiendo las abreviaciones como "km" o "m",
-                pero mejoraré día a día. <i class="fa fa-smile-o"></i></h4>
-            <hr>
             <form action="#">
                 <label for="principal">¿Qué quieres convertir?</label>
                 <input type="text" class="form-control" id="principal" placeholder="256 bits a megabytes"
@@ -25,11 +20,10 @@
             </form>
             <br>
             <div class="alert" id="resultado">
-                Los resultados aparecerán aquí
             </div>
             <br>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ocultable" hidden="hidden">
+                <div class="row ">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <select name="grupoUnidades" id="grupoUnidades" class="form-control"></select>
                     </div>
@@ -56,7 +50,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Acerca de</h4>
+                        <h4 class="text-center">¡Hola!, me llamo Dennis y puedo convertir unidades.<br>
+                            <strong>Nota:</strong>
+                            Por el momento no entiendo las abreviaciones como "km" o "m",
+                            pero mejoraré día a día. <i class="fa fa-smile-o"></i></h4>
                     </div>
                     <div class="modal-body">
                         <strong>Unidades que puedo convertir hasta el momento:</strong>

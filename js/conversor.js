@@ -55,24 +55,50 @@ function principal() {
         llenaSegundoGrupo($selectSegundoGrupo, $(this).val());
         $inputPrimerGrupo.val(1);
         $inputPrimerGrupo.keyup();
-        convierte($(this).val(), $(this).val(), $inputPrimerGrupo.val(), $selectPrimerGrupo.val(), $selectSegundoGrupo.val());
+        convierte(
+            $(this).val(),
+            $(this).val(),
+            $inputPrimerGrupo.val(),
+            $selectPrimerGrupo.val(),
+            $selectSegundoGrupo.val());
     });
     llenaSelectUnidades($selectGrupoUnidades);
     $selectPrimerGrupo.change(function () {
-        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $inputPrimerGrupo.val(), $(this).val(), $selectSegundoGrupo.val());
+        convierte(
+            $selectGrupoUnidades.val(),
+            $selectGrupoUnidades.val(),
+            $inputPrimerGrupo.val(),
+            $(this).val(),
+            $selectSegundoGrupo.val());
     });
     $selectSegundoGrupo.change(function () {
-        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $inputPrimerGrupo.val(), $selectPrimerGrupo.val(), $(this).val());
+        convierte(
+            $selectGrupoUnidades.val(),
+            $selectGrupoUnidades.val(),
+            $inputPrimerGrupo.val(),
+            $selectPrimerGrupo.val(),
+            $(this).val());
     });
     $inputPrimerGrupo.keyup(function () {
-        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $(this).val(), $selectPrimerGrupo.val(), $selectSegundoGrupo.val());
+        convierte(
+            $selectGrupoUnidades.val(),
+            $selectGrupoUnidades.val(),
+            $(this).val(),
+            $selectPrimerGrupo.val(),
+            $selectSegundoGrupo.val());
     });
     $inputSegundoGrupo.keyup(function () {
-        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $(this).val(), $selectPrimerGrupo.val(), $selectSegundoGrupo.val());
+        convierte(
+            $selectGrupoUnidades.val(),
+            $selectGrupoUnidades.val(),
+            $(this).val(),
+            $selectPrimerGrupo.val(),
+            $selectSegundoGrupo.val());
     });
     $btnAcercaDe.click(function () {
         $ventanaAcercaDe.modal('show');
     });
+    $('.ocultable').hide();
 }
 function compruebaValores(oracion) {
     if (oracion) {
@@ -137,6 +163,7 @@ function cambiaPlaceholder() {
     }
 }
 function escribeError(mensaje) {
+    $('.ocultable').hide();
     $resultado
         .removeClass('alert-success')
         .addClass('alert-danger');
@@ -159,6 +186,7 @@ function escribeResultado(numero, u1, u2, resultado) {
         .removeClass('alert-danger')
         .addClass('alert-success');
     $resultado.html(mensaje);
+    $('.ocultable').show();
 }
 
 function llenaSelectUnidades(selector) {
