@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap-t.css">
+    <link rel="stylesheet" href="./css/fa.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <title>Conversor de unidades</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h4 class="text-center">¡Hola!, me llamo Dennis y puedo convertir unidades.<br>
+
+                <strong>Nota:</strong>
+                Por el momento no entiendo las abreviaciones como "km" o "m",
+                pero mejoraré día a día. <i class="fa fa-smile-o"></i></h4>
+
+            <hr>
+            <form action="#">
+                <label for="principal">¿Qué quieres convertir?</label>
+                <input type="text" class="form-control" id="principal" placeholder="256 bits a megabytes"
+                       autocomplete="off">
+            </form>
+            <br>
+            <div class="alert" id="resultado">
+                Los resultados aparecerán aquí
+            </div>
+            <br>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <select name="grupoUnidades" id="grupoUnidades" class="form-control"></select>
+                    </div>
+                    <br><br>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <input id="inputPrimeraUnidad" type="text" class="form-control">
+                        <select name="primeraUnidad" id="primeraUnidad" class="form-control"></select>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <input id="inputSegundaUnidad" type="text" class="form-control">
+                        <select name="segundaUnidad" id="segundaUnidad" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <strong>Unidades que puedo convertir hasta el momento:</strong>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">Longitud</li>
+                <li class="list-group-item list-group-item-success">Masa</li>
+                <li class="list-group-item list-group-item-success">Tiempo <strong>Gracias a Marijo <i class="fa fa-heart"></i></strong></li>
+            </ul>
+            <br>
+            <strong>Unidades que NO puedo convertir hasta el momento pero que algún día convertiré:</strong>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-warning">Energía</li>
+                <li class="list-group-item list-group-item-warning">Frecuencia</li>
+                <li class="list-group-item list-group-item-warning">Presión</li>
+                <li class="list-group-item list-group-item-warning">Tamaño de datos</li>
+                <li class="list-group-item list-group-item-warning">Tasa de transmisión de datos</li>
+                <li class="list-group-item list-group-item-warning">Temperatura</li>
+                <li class="list-group-item list-group-item-warning">Velocidad</li>
+                <li class="list-group-item list-group-item-warning">Volumen</li>
+                <li class="list-group-item list-group-item-warning">Área</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="text/javascript" src="./js/conversor.js"></script>
+</body>
+</html>
