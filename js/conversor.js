@@ -7,6 +7,7 @@
  * */
 $(document).ready(function () {
     principal();
+    $selectPrimerGrupo.val('metro');
 });
 var abreviaciones = {
     'Longitud': {
@@ -493,6 +494,8 @@ var unidades = {
     $selectSegundoGrupo = $('select#segundaUnidad'),
     $inputPrimerGrupo = $('input#inputPrimeraUnidad'),
     $inputSegundoGrupo = $('input#inputSegundaUnidad'),
+    $ventanaAcercaDe = $('div#acercaDe'),
+    $btnAcercaDe = $('button#btn-about'),
     contador = 0,
     segundosCambiaPlaceholder = 1,
     limiteLongitudNumeros = 16,
@@ -511,10 +514,28 @@ function principal() {
         compruebaValores($(this).val());
     });
     $selectGrupoUnidades.change(function () {
-        console.log('cambiada');
-
+        llenaPrimerGrupo($selectPrimerGrupo, $(this).val());
+        llenaSegundoGrupo($selectSegundoGrupo, $(this).val());
+        $inputPrimerGrupo.val(1);
+        $inputPrimerGrupo.keyup();
+        convierte($(this).val(), $(this).val(), $inputPrimerGrupo.val(), $selectPrimerGrupo.val(), $selectSegundoGrupo.val());
     });
     llenaSelectUnidades($selectGrupoUnidades);
+    $selectPrimerGrupo.change(function () {
+        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $inputPrimerGrupo.val(), $(this).val(), $selectSegundoGrupo.val());
+    });
+    $selectSegundoGrupo.change(function () {
+        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $inputPrimerGrupo.val(), $selectPrimerGrupo.val(), $(this).val());
+    });
+    $inputPrimerGrupo.keyup(function () {
+        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $(this).val(), $selectPrimerGrupo.val(), $selectSegundoGrupo.val());
+    });
+    $inputSegundoGrupo.keyup(function () {
+        convierte($selectGrupoUnidades.val(), $selectGrupoUnidades.val(), $(this).val(), $selectPrimerGrupo.val(), $selectSegundoGrupo.val());
+    });
+    $btnAcercaDe.click(function () {
+        $ventanaAcercaDe.modal('show');
+    });
 }
 function compruebaValores(oracion) {
     if (oracion) {
@@ -538,26 +559,7 @@ function compruebaValores(oracion) {
                                 grupoUnidad2 = dameGrupo(segundaUnidad);
                             if (grupoUnidad1 !== false) {
                                 if (grupoUnidad2 !== false) {
-                                    var cadenaNumeroUnidades1 = (primerNumero >= 2) ? "Los" : "";
-                                    var primeraUnidadFinal = (primerNumero >= 2) ? primeraUnidad + 's' : primeraUnidad;
-                                    var equivalencia = convierte(grupoUnidad1, primerNumero, primeraUnidad, segundaUnidad);
-                                    var cadenaSegundaUnidad = (equivalencia >= 2) ? segundaUnidad + 's' : segundaUnidad;
-                                    var cadenaEquivalencia = (primerNumero >= 2) ? " equivalen " : " equivale ";
-                                    escribeResultado(cadenaNumeroUnidades1 + ' '
-                                        + '<strong>' + primerNumero + '</strong>'
-                                        + ' '
-                                        + primeraUnidadFinal
-                                        + cadenaEquivalencia + 'a '
-                                        + '<strong>' + equivalencia + '</strong>'
-                                        + ' '
-                                        + cadenaSegundaUnidad);
-                                    llenaPrimerGrupo($selectPrimerGrupo, grupoUnidad1);
-                                    llenaSegundoGrupo($selectSegundoGrupo, grupoUnidad2);
-                                    $selectPrimerGrupo.val(primeraUnidad);
-                                    $selectSegundoGrupo.val(segundaUnidad);
-                                    $selectGrupoUnidades.val(grupoUnidad1);
-                                    $inputPrimerGrupo.val(primerNumero);
-                                    $inputSegundoGrupo.val(equivalencia);
+                                    convierte(grupoUnidad1, grupoUnidad2, primerNumero, primeraUnidad, segundaUnidad);
                                 } else {
                                     escribeError('La segunda unidad no existe: ' + segundaUnidad);
                                 }
@@ -576,16 +578,7 @@ function compruebaValores(oracion) {
             }
         }
     }
-
 }
-function convierte(grupo, numero, u1, u2) {
-    //var factor = dameEquivalencia(grupo, u1, u2);
-    //var resultado = factor * numero;
-    return dameEquivalencia(grupo, u1, u2) * numero;
-}
-/*
- * Esta función regresa el grupo al cual pertenece una unidad, por ejemplo "Masa" o "Longitud"
- * */
 function dameGrupo(unidad) {
     for (var x in unidades) {
         if (unidades[x].unidades.indexOf(unidad) !== -1) {
@@ -594,9 +587,6 @@ function dameGrupo(unidad) {
     }
     return false;
 }
-/*
- * Esta función regresa el factor de conversión que hay de una unidad a otra
- * */
 function dameEquivalencia(grupo, u1, u2) {
     return unidades[grupo].equivalencias[u1][u2];
 }
@@ -615,7 +605,19 @@ function escribeError(mensaje) {
         .addClass('alert-danger');
     $resultado.html(mensaje);
 }
-function escribeResultado(mensaje) {
+function escribeResultado(numero, u1, u2, resultado) {
+    var cadenaNumeroUnidades1 = (numero >= 2) ? "Los" : "";
+    var primeraUnidadFinal = (numero >= 2) ? u1 + 's' : u2;
+    var cadenaSegundaUnidad = (resultado >= 2) ? u2 + 's' : u2;
+    var cadenaEquivalencia = (numero >= 2) ? " equivalen " : " equivale ";
+    var mensaje = cadenaNumeroUnidades1 + ' '
+        + '<strong>' + numero + '</strong>'
+        + ' '
+        + primeraUnidadFinal
+        + cadenaEquivalencia + 'a '
+        + '<strong>' + resultado + '</strong>'
+        + ' '
+        + cadenaSegundaUnidad;
     $resultado
         .removeClass('alert-danger')
         .addClass('alert-success');
@@ -652,6 +654,18 @@ function llenaSegundoGrupo(selector, grupo) {
 
 function aLetraCapital(palabra) {
     return palabra[0].toUpperCase() + palabra.slice(1, palabra.length);
+}
+
+function convierte(grupo, grupo2, numero, u1, u2) {
+    var resultado = dameEquivalencia(grupo, u1, u2) * numero;
+    llenaPrimerGrupo($selectPrimerGrupo, grupo);
+    llenaSegundoGrupo($selectSegundoGrupo, grupo2);
+    $selectGrupoUnidades.val(grupo);
+    $inputPrimerGrupo.val(numero);
+    $inputSegundoGrupo.val(resultado);
+    $selectPrimerGrupo.val(u1);
+    $selectSegundoGrupo.val(u2);
+    escribeResultado(numero, u1, u2, resultado);
 }
 function prueba(abreviacion) {
     for (var ge in abreviaciones) {
