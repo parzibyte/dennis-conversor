@@ -137,7 +137,7 @@ var unidades = {
                 'yarda': 0.0277778,
                 'pie': 0.0833333,
                 'pulgada': 1
-            },
+            }
         }
     },
     'Masa': {
