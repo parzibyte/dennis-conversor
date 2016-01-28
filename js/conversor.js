@@ -46,6 +46,7 @@ var $inputPrincipal = $('input#principal'),
         "256 bits a megabytes"
     ];
 function principal() {
+    $inputPrincipal.focus();
     setInterval(cambiaPlaceholder, segundosCambiaPlaceholder * 1000);
     $inputPrincipal.keyup(function () {
         compruebaValores($(this).val());
@@ -64,6 +65,7 @@ function principal() {
     });
     llenaSelectUnidades($selectGrupoUnidades);
     $selectPrimerGrupo.change(function () {
+        console.log('cambiado');
         convierte(
             $selectGrupoUnidades.val(),
             $selectGrupoUnidades.val(),
@@ -122,7 +124,12 @@ function compruebaValores(oracion) {
                                 grupoUnidad2 = dameGrupo(segundaUnidad);
                             if (grupoUnidad1 !== false) {
                                 if (grupoUnidad2 !== false) {
-                                    convierte(grupoUnidad1, grupoUnidad2, primerNumero, primeraUnidad, segundaUnidad);
+                                    if (grupoUnidad1 === grupoUnidad2) {
+                                        convierte(grupoUnidad1, grupoUnidad2, primerNumero, primeraUnidad, segundaUnidad);
+                                    } else {
+                                        escribeError('Los grupos de unidades no son compatibles: ' + primeraUnidad + ' y ' + segundaUnidad);
+                                    }
+
                                 } else {
                                     escribeError('La segunda unidad no existe: ' + segundaUnidad);
                                 }
@@ -170,18 +177,18 @@ function escribeError(mensaje) {
     $resultado.html(mensaje);
 }
 function escribeResultado(numero, u1, u2, resultado) {
-    var cadenaNumeroUnidades1 = (numero >= 2) ? "Los" : "";
-    var primeraUnidadFinal = (numero >= 2) ? u1 + 's' : u2;
+    var primeraUnidadFinal = (numero >= 2) ? u1 + 's' : u1;
     var cadenaSegundaUnidad = (resultado >= 2) ? u2 + 's' : u2;
     var cadenaEquivalencia = (numero >= 2) ? " equivalen " : " equivale ";
-    var mensaje = cadenaNumeroUnidades1 + ' '
+    var mensaje = '<h5>'
         + '<strong>' + numero + '</strong>'
         + ' '
         + primeraUnidadFinal
         + cadenaEquivalencia + 'a '
         + '<strong>' + resultado + '</strong>'
         + ' '
-        + cadenaSegundaUnidad;
+        + cadenaSegundaUnidad
+        + '</h5>';
     $resultado
         .removeClass('alert-danger')
         .addClass('alert-success');
