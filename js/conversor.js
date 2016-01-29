@@ -156,7 +156,6 @@ function escribeError(mensaje) {
 }
 
 function escribeResultado(numero, u1, u2, resultado) {
-    console.log(numero);
     var primeraUnidadFinal = (numero !== 1) ? u1 + 's' : u1;
     var cadenaSegundaUnidad = (resultado !== 1) ? u2 + 's' : u2;
     var cadenaEquivalencia = (numero >= 2) ? " equivalen " : " equivale ";
@@ -220,11 +219,11 @@ function escuchaElementos() {
                     $(this).val(1);
                     $('.ocultable').show();
                 }
-            } else {
-                $(this).val(1);
             }
         } else {
             escribeError('Ingresa un número en la caja de texto número 1');
+            $(this).val(1);
+            $('.ocultable').show();
         }
 
     });
@@ -243,11 +242,12 @@ function escuchaElementos() {
                     $(this).val(1);
                     $('.ocultable').show();
                 }
-            } else {
-                $(this).val(1);
             }
         } else {
             escribeError('Ingresa un número en la caja de texto número 2');
+            $(this).val(1);
+            $(this).keyup();
+            $('.ocultable').show();
         }
 
     });
