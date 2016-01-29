@@ -12,10 +12,7 @@
                             <li class="list-group-item list-group-item-success">Temperatura</li>
                                                         <li class="list-group-item list-group-item-success">Velocidad</li>
                                                         <li class="list-group-item list-group-item-success">Volumen</li>
-                                                        <li class="list-group-item list-group-item-success">Área - Gracias a <strong><a
-                                                                href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
-                                                            escribir las equivalencias
-                                                        </li>
+                                                        <li class="list-group-item list-group-item-success">Área <strong>(Gracias a <a href="https://twitter.com/MariJose961128">Marijo Sacramento</a> por escribir las equivalencias)</strong></li>
                         </ul>
                         <br>
                         <p>Más unidades vienen en camino...</p>
