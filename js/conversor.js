@@ -94,6 +94,9 @@ function compruebaValores(oracion) {
 
 function convierte(grupo, grupo2, numero, u1, u2, esDelSegundoInput) {
     var resultado = dameEquivalencia(grupo, u1, u2) * numero;
+    if (grupo === "Temperatura") {
+        resultado = grados(grupo, u1, u2, numero);
+    }
     llenaPrimerGrupo($selectPrimerGrupo, grupo);
     llenaSegundoGrupo($selectSegundoGrupo, grupo2);
     $selectGrupoUnidades.val(grupo);
@@ -145,6 +148,7 @@ function cortaOracion(o) {
 }
 
 function dameEquivalencia(grupo, u1, u2) {
+
     return unidades[grupo].equivalencias[u1][u2];
 }
 
@@ -267,6 +271,52 @@ function escuchaElementos() {
 
         $('div#manual').modal('show');
     });
+}
+
+function grados(grupo, u1, u2, numero) {
+    if (grupo === "Temperatura") {
+        switch (u1) {
+            case "grado fahrenheit":
+                switch (u2) {
+                    case "grado fahrenheit":
+                        return 1;
+                        break;
+                    case "grado celsius":
+                        return (numero - 32) * (5 / 9);
+                        break;
+                    case "kelvin":
+                        return ((5 * (numero - 32)) / 9) + 273.15;
+                        break;
+                }
+                break;
+            case "grado celsius":
+                switch (u2) {
+                    case "grado fahrenheit":
+                        return 32 + ((9 / 5) * numero );
+                        break;
+                    case "grado celsius":
+                        return 1;
+                        break;
+                    case "kelvin":
+                        return numero + 273.15;
+                        break;
+                }
+                break;
+            case "kelvin":
+                switch (u2) {
+                    case "grado fahrenheit":
+                        return ((9 * (numero - 273.15)) / 5) + 32;
+                        break;
+                    case "grado celsius":
+                        return numero - 273.15;
+                        break;
+                    case "kelvin":
+                        return 1;
+                        break;
+                }
+                break;
+        }
+    }
 }
 
 function llenaPrimerGrupo(selector, grupo) {

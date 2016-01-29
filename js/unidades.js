@@ -1272,5 +1272,124 @@ var unidades = {
                 'pebibyte': 1
             }
         }
+    },
+    'Velocidad': {
+        'grupo': 'Velocidad',
+        'unidades': [
+            'milla por hora',
+            'pies por segundo',
+            'metro por segundo',
+            'kilometro por hora',
+            'nudo'
+        ],
+        'equivalencias': {
+            'milla por hora': {
+                'milla por hora': 1,
+                'pies por segundo': 1.46667,
+                'metro por segundo': 0.44704,
+                'kilometro por hora': 1.60934,
+                'nudo': 0.868976
+            },
+            'pies por segundo': {
+                'milla por hora': 0.681818,
+                'pies por segundo': 1,
+                'metro por segundo': 0.3048,
+                'kilometro por hora': 1.09728,
+                'nudo': 0.592484
+            },
+            'metro por segundo': {
+                'milla por hora': 2.23694,
+                'pies por segundo': 3.28084,
+                'metro por segundo': 1,
+                'kilometro por hora': 3.6,
+                'nudo': 1.94384
+            },
+            'kilometro por hora': {
+                'milla por hora': 0.621371,
+                'pies por segundo': 0.911344,
+                'metro por segundo': 0.277778,
+                'kilometro por hora': 1,
+                'nudo': 0.539957
+            },
+            'nudo': {
+                'milla por hora': 1.15078,
+                'pies por segundo': 1.68781,
+                'metro por segundo': 0.514444,
+                'kilometro por hora': 1.852,
+                'nudo': 1
+            }
+        }
+    },
+    'Volumen': {
+        'grupo': 'Volumen',
+        'unidades': [
+            'metro cubico',
+            'litro',
+            'mililitro',
+            'pie cubico',
+            'pulgada cubica'
+        ],
+        'equivalencias': {
+            'metro cubico': {
+                'metro cubico': 1,
+                'litro': 1000,
+                'mililitro': 1e+6,
+                'pie cubico': 35.3147,
+                'pulgada cubica': 61023.7
+            },
+            'litro': {
+                'metro cubico': 0.001,
+                'litro': 1,
+                'mililitro': 1000,
+                'pie cubico': 0.0353147,
+                'pulgada cubica': 61.0237
+            },
+            'mililitro': {
+                'metro cubico': 1e-6,
+                'litro': 0.001,
+                'mililitro': 1,
+                'pie cubico': 3.5315e-5,
+                'pulgada cubica': 0.0610237
+            },
+            'pie cubico': {
+                'metro cubico': 0.0283168,
+                'litro': 28.3168,
+                'mililitro': 28316.8,
+                'pie cubico': 1,
+                'pulgada cubica': 1728
+            },
+            'pulgada cubica': {
+                'metro cubico': 1.6387e-5,
+                'litro': 0.0163871,
+                'mililitro': 16.3871,
+                'pie cubico': 0.000578704,
+                'pulgada cubica': 1
+            }
+        }
+    },
+    'Temperatura': {
+        'grupo': 'Temperatura',
+        'unidades': [
+            'grado celsius',
+            'grado fahrenheit',
+            'kelvin'
+        ],
+        'equivalencias': {
+            'grado celsius': {
+                'grado celsius': 1,
+                'grado fahrenheit': 33.8,
+                'kelvin': 274.15
+            },
+            'grado fahrenheit': {
+                'grado celsius': -17.2222,
+                'grado fahrenheit': 1,
+                'kelvin': 255.928
+            },
+            'kelvin': {
+                'grado celsius': -272.15,
+                'grado fahrenheit': -457.87,
+                'kelvin': 1
+            }
+        }
     }
 };
