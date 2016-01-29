@@ -189,7 +189,6 @@ function escuchaElementos() {
             $selectSegundoGrupo.val());
     });
     $selectPrimerGrupo.change(function () {
-        console.log('cambiado');
         convierte(
             $selectGrupoUnidades.val(),
             $selectGrupoUnidades.val(),
@@ -278,7 +277,6 @@ function llenaSelectUnidades(selector) {
             text: opcion
         }));
     }
-    console.log('¡Grupos de unidades cargados correctamente!');
 }
 
 function principal() {
