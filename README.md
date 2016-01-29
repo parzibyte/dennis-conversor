@@ -9,13 +9,13 @@
                             <li class="list-group-item list-group-item-success">Frecuencia <strong>(Gracias a <a href="https://twitter.com/MariJose961128">Marijo Sacramento</a> por escribir las equivalencias)</strong></li>
                             <li class="list-group-item list-group-item-success">Presión <strong>(Gracias a <a href="https://twitter.com/MariJose961128">Marijo Sacramento</a> por escribir las equivalencias)</strong></li>
                             <li class="list-group-item list-group-item-success">Tamaño de datos <strong>(Gracias a <a href="https://twitter.com/MariJose961128">Marijo Sacramento</a> por escribir las equivalencias)</strong></li>
+                            <li class="list-group-item list-group-item-success">Temperatura</li>
+                                                        <li class="list-group-item list-group-item-success">Velocidad</li>
+                                                        <li class="list-group-item list-group-item-success">Volumen</li>
+                                                        <li class="list-group-item list-group-item-success">Área - Gracias a <strong><a
+                                                                href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
+                                                            escribir las equivalencias
+                                                        </li>
                         </ul>
                         <br>
-                        <strong>Unidades que NO puedo convertir hasta el momento pero que algún día convertiré:</strong>
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-warning">Tasa de transmisión de datos</li>
-                            <li class="list-group-item list-group-item-warning">Temperatura</li>
-                            <li class="list-group-item list-group-item-warning">Velocidad</li>
-                            <li class="list-group-item list-group-item-warning">Volumen</li>
-                            <li class="list-group-item list-group-item-warning">Área</li>
-                        </ul>
+                        <p>Más unidades vienen en camino...</p>
