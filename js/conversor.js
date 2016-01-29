@@ -216,6 +216,8 @@ function escuchaElementos() {
                     $selectSegundoGrupo.val());
             } else {
                 escribeError('Lo siento, solamente se permiten números de <strong>16 cifras</strong> sin incluir el punto decimal');
+                $(this).val(1);
+                $('.ocultable').show();
             }
         } else {
             escribeError('Ingresa un número en la caja de texto número 1');
@@ -233,6 +235,8 @@ function escuchaElementos() {
                     $selectSegundoGrupo.val());
             } else {
                 escribeError('Lo siento, solamente se permiten números de <strong>16 cifras</strong> sin incluir el punto decimal');
+                $(this).val(1);
+                $('.ocultable').show();
             }
         } else {
             escribeError('Ingresa un número en la caja de texto número 2');
