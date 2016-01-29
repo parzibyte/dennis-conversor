@@ -59,7 +59,7 @@ function compruebaValores(oracion) {
                     if (grupoUnidad1 !== false) {
                         if (grupoUnidad2 !== false) {
                             if (grupoUnidad1 === grupoUnidad2) {
-                                convierte(grupoUnidad1, grupoUnidad2, numero, unidad1, unidad2);
+                                convierte(grupoUnidad1, grupoUnidad2, numero, unidad1, unidad2, false);
                             } else {
                                 escribeError('Los grupos de unidades no son compatibles: <strong>' + unidad1 + ' y ' + unidad2 + '</strong>');
                             }
@@ -91,15 +91,24 @@ function compruebaValores(oracion) {
     }
 }
 
-function convierte(grupo, grupo2, numero, u1, u2) {
+function convierte(grupo, grupo2, numero, u1, u2, esDelSegundoInput) {
     var resultado = dameEquivalencia(grupo, u1, u2) * numero;
     llenaPrimerGrupo($selectPrimerGrupo, grupo);
     llenaSegundoGrupo($selectSegundoGrupo, grupo2);
     $selectGrupoUnidades.val(grupo);
-    $inputPrimerGrupo.val(numero);
-    $inputSegundoGrupo.val(resultado);
-    $selectPrimerGrupo.val(u1);
-    $selectSegundoGrupo.val(u2);
+    if (esDelSegundoInput) {
+
+        $inputPrimerGrupo.val(resultado);
+        $inputSegundoGrupo.val(numero);
+        $selectPrimerGrupo.val(u2);
+        $selectSegundoGrupo.val(u1);
+    } else {
+
+        $inputPrimerGrupo.val(numero);
+        $inputSegundoGrupo.val(resultado);
+        $selectPrimerGrupo.val(u1);
+        $selectSegundoGrupo.val(u2);
+    }
     escribeResultado(numero, u1, u2, resultado);
 }
 
@@ -156,9 +165,9 @@ function escribeError(mensaje) {
 }
 
 function escribeResultado(numero, u1, u2, resultado) {
-    var primeraUnidadFinal = (numero !== 1) ? u1 + 's' : u1;
-    var cadenaSegundaUnidad = (resultado !== 1) ? u2 + 's' : u2;
-    var cadenaEquivalencia = (numero >= 2) ? " equivalen " : " equivale ";
+    var primeraUnidadFinal = (numero === 1) ? u1 : u1 + 's';
+    var cadenaSegundaUnidad = (resultado === 1) ? u2 : u2 + 's';
+    var cadenaEquivalencia = (numero === 1) ? " equivale " : " equivalen ";
     var mensaje = '<h5>'
         + '<strong>' + numero + '</strong>'
         + ' '
@@ -186,7 +195,7 @@ function escuchaElementos() {
             $(this).val(),
             $inputPrimerGrupo.val(),
             $selectPrimerGrupo.val(),
-            $selectSegundoGrupo.val());
+            $selectSegundoGrupo.val(), false);
     });
     $selectPrimerGrupo.change(function () {
         convierte(
@@ -194,7 +203,7 @@ function escuchaElementos() {
             $selectGrupoUnidades.val(),
             $inputPrimerGrupo.val(),
             $(this).val(),
-            $selectSegundoGrupo.val());
+            $selectSegundoGrupo.val(), false);
     });
     $selectSegundoGrupo.change(function () {
         convierte(
@@ -202,7 +211,7 @@ function escuchaElementos() {
             $selectGrupoUnidades.val(),
             $inputPrimerGrupo.val(),
             $selectPrimerGrupo.val(),
-            $(this).val());
+            $(this).val(), false);
     });
     $inputPrimerGrupo.keyup(function () {
         if (!isNaN($(this).val())) {
@@ -213,16 +222,15 @@ function escuchaElementos() {
                         $selectGrupoUnidades.val(),
                         $(this).val(),
                         $selectPrimerGrupo.val(),
-                        $selectSegundoGrupo.val());
+                        $selectSegundoGrupo.val(), false);
                 } else {
                     escribeError('Lo siento, solamente se permiten números de <strong>16 cifras</strong> sin incluir el punto decimal');
-                    $(this).val(1);
+
                     $('.ocultable').show();
                 }
             }
         } else {
             escribeError('Ingresa un número en la caja de texto número 1');
-            $(this).val(1);
             $('.ocultable').show();
         }
 
@@ -235,18 +243,15 @@ function escuchaElementos() {
                         $selectGrupoUnidades.val(),
                         $selectGrupoUnidades.val(),
                         $(this).val(),
-                        $selectPrimerGrupo.val(),
-                        $selectSegundoGrupo.val());
+                        $selectSegundoGrupo.val(),
+                        $selectPrimerGrupo.val(), true);
                 } else {
                     escribeError('Lo siento, solamente se permiten números de <strong>16 cifras</strong> sin incluir el punto decimal');
-                    $(this).val(1);
                     $('.ocultable').show();
                 }
             }
         } else {
             escribeError('Ingresa un número en la caja de texto número 2');
-            $(this).val(1);
-            $(this).keyup();
             $('.ocultable').show();
         }
 
