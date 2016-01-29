@@ -1391,5 +1391,107 @@ var unidades = {
                 'kelvin': 1
             }
         }
+    },
+    'Area': {
+        'grupo': 'Area',
+        'unidades': [
+            'kilometro cuadrado',
+            'metro cuadrado',
+            'milla cuadrada',
+            'yarda cuadrada',
+            'pie cuadrado',
+            'pulgada cuadrada',
+            'hectarea',
+            'acre'
+        ],
+        'equivalencias': {
+            'kilometro cuadrado': {
+                'kilometro cuadrado': 1,
+                'metro cuadrado': 1e+6,
+                'milla cuadrada': 0.386102,
+                'yarda cuadrada': 1.196e+6,
+                'pie cuadrado': 1.076e+7,
+                'pulgada cuadrada': 1.55e+9,
+                'hectarea': 100,
+                'acre': 247.105
+            },
+
+            'metro cuadrado': {
+                'kilometro cuadrado': 1e-6,
+                'metro cuadrado': 1,
+                'milla cuadrada': 3.861e-7,
+                'yarda cuadrada': 1.19599,
+                'pie cuadrado': 10.7639,
+                'pulgada cuadrada': 1550,
+                'hectarea': 1e-4,
+                'acre': 0.000247105
+            },
+
+            'milla cuadrada': {
+                'kilometro cuadrado': 2.58999,
+                'metro cuadrado': 2.59e+6,
+                'milla cuadrada': 1,
+                'yarda cuadrada': 3.098e+6,
+                'pie cuadrado': 2.788e+7,
+                'pulgada cuadrada': 4.014e+9,
+                'hectarea': 258.999,
+                'acre': 640
+            },
+
+            'yarda cuadrada': {
+                'kilometro cuadrado': 8.3613e-7,
+                'metro cuadrado': 0.836127,
+                'milla cuadrada': 3.2283e-7,
+                'yarda cuadrada': 1,
+                'pie cuadrado': 9,
+                'pulgada cuadrada': 1296,
+                'hectarea': 8.3613e-5,
+                'acre': 0.000206612
+            },
+
+            'pie cuadrado': {
+                'kilometro cuadrado': 9.2903e-8,
+                'metro cuadrado': 0.092903,
+                'milla cuadrada': 3.587e-8,
+                'yarda cuadrada': 0.111111,
+                'pie cuadrado': 1,
+                'pulgada cuadrada': 144,
+                'hectarea': 9.2903e-6,
+                'acre': 2.2957e-5
+            },
+
+            'pulgada cuadrada': {
+                'kilometro cuadrado': 6.4516e-10,
+                'metro cuadrado': 0.00064516,
+                'milla cuadrada': 2.491e-10,
+                'yarda cuadrada': 0.000771605,
+                'pie cuadrado': 0.00694444,
+                'pulgada cuadrada': 1,
+                'hectarea': 6.4516e-8,
+                'acre': 1.5942e-7
+            },
+
+            'hectarea': {
+                'kilometro cuadrado': 0.01,
+                'metro cuadrado': 10000,
+                'milla cuadrada': 0.00386102,
+                'yarda cuadrada': 11959.9,
+                'pie cuadrado': 107639,
+                'pulgada cuadrada': 1.55e+7,
+                'hectarea': 1,
+                'acre': 2.47105
+            },
+
+            'acre': {
+                'kilometro cuadrado': 0.00404686,
+                'metro cuadrado': 4046.86,
+                'milla cuadrada': 0.0015625,
+                'yarda cuadrada': 4840,
+                'pie cuadrado': 43560,
+                'pulgada cuadrada': 6.273e+6,
+                'hectarea': 0.404686,
+                'acre': 1
+            }
+        }
     }
 };
