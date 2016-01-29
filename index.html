@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <!--<link rel="stylesheet" href="./css/bootstrap-t.css">-->
     <link rel="stylesheet" href="./css/fa.css">
     <link rel="stylesheet" href="./css/styles.css">
     <title>Conversor de unidades</title>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row ">
+    <div class="row "><br>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="form-group">
-                <label for="principal">¿Qué quieres convertir?</label>
+                <label for="principal">¿Qué quieres convertir?
+                    <button class="btn btn-info" id="mostrarEjemplo">Ver un ejemplo</button>
+                </label>
                 <input type="text" class="form-control" id="principal" placeholder="256 bits a megabytes"
                        autocomplete="off">
             </div>
@@ -67,16 +68,26 @@
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-success">Longitud</li>
                             <li class="list-group-item list-group-item-success">Masa</li>
-                            <li class="list-group-item list-group-item-success">Tiempo <strong>Gracias a Marijo <i
-                                    class="fa fa-heart"></i></strong></li>
-                            <li class="list-group-item list-group-item-success">Energía <strong>Gracias a Marijo <i
-                                    class="fa fa-heart"></i></strong></li>
-                            <li class="list-group-item list-group-item-success">Frecuencia <strong>Gracias a Marijo <i
-                                    class="fa fa-heart"></i></strong></li>
-                            <li class="list-group-item list-group-item-success">Presión <strong>Gracias a Marijo <i
-                                    class="fa fa-heart"></i></strong></li>
-                            <li class="list-group-item list-group-item-success">Tamaño de datos <strong>Gracias a Marijo
-                                <i class="fa fa-heart"></i></strong></li>
+                            <li class="list-group-item list-group-item-success">Tiempo - Gracias a <strong><a
+                                    href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
+                                escribir las equivalencias
+                            </li>
+                            <li class="list-group-item list-group-item-success">Energía - Gracias a <strong><a
+                                    href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
+                                escribir las equivalencias
+                            </li>
+                            <li class="list-group-item list-group-item-success">Frecuencia - Gracias a <strong><a
+                                    href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
+                                escribir las equivalencias
+                            </li>
+                            <li class="list-group-item list-group-item-success">Presión - Gracias a <strong><a
+                                    href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
+                                escribir las equivalencias
+                            </li>
+                            <li class="list-group-item list-group-item-success">Tamaño de datos - Gracias a <strong><a
+                                    href="https://twitter.com/MariJose961128">Marijo Sacramento</a></strong> por
+                                escribir las equivalencias
+                            </li>
                         </ul>
                         <br>
                         <strong>Unidades que NO puedo convertir hasta el momento pero que algún día convertiré:</strong>
@@ -87,9 +98,78 @@
                             <li class="list-group-item list-group-item-warning">Volumen</li>
                             <li class="list-group-item list-group-item-warning">Área</li>
                         </ul>
+                        <p>Creado y mantenido por <a href="https://www.facebook.com/cabrerabenito">Luis Cabrera
+                            Benito</a></p>
+                        <p>Programado en Javascript utilizando jQuery. Los estilos y algunas funcionalidades son gracias
+                            a Bootstrap.</p>
+                        <p>Código fuente disponible en GitHub. <a
+                                href="https://github.com/parzibyte/dennis-conversor">Ver código</a></p>
+                        <hr>
+                        <p>Bautizado como Dennis en honor a <strong><a
+                                href="https://es.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a></strong></p>
+                        <blockquote>
+                            <p>Vacía tu memoria con un <i>free()</i>, como un puntero.
+                                <br>
+                                Si casteas un puntero a un <i>entero</i>, se convierte en un <i>entero</i>,
+                                <br>
+                                si casteas un puntero a un <i>struct</i>, se convierte en un <i>struct</i>.
+                                <br>
+                                El puntero puede estallar,
+                                <br>
+                                el puntero se puede sobrecargar,
+                                <br>
+                                ¡Sé un puntero, amigo mío!
+                            </p>
+                            <footer>Dennis Ritchie</footer>
+                        </blockquote>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="manual" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="text-center">Cómo hablarle a Dennis</h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>Dennis aceptará que le hables como a una persona con frases como:</p><br>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success">1 milla a metros</li>
+                            <li class="list-group-item list-group-item-success">15.05 libra por pulgada cuadrada</li>
+                            <li class="list-group-item list-group-item-success">28 años naturales a siglos</li>
+                            <li class="list-group-item list-group-item-success">11 kilohertz a hercios</li>
+                            <li class="list-group-item list-group-item-success">96 bits en kilobits</li>
+                        </ul>
+                        <br>
+                        <p>Conforme vayas escribiendo, Dennis te avisará si es que tienes un error</p>
+                        <img src="./img/1.png" alt="Imagen 1" class="img img-responsive img-thumbnail">
+                        <br>
+                        <p>Si Dennis no reconoce una unidad (a veces es porque no reconoce los plurales, por ejemplo
+                            "años naturales") te lo dirá.</p>
+
+                        <img src="./img/2.png" alt="Imagen 2" class="img img-responsive img-thumbnail">
+                        <br>
+                        <p>Una vez que Dennis haya reconocido lo que le dijiste, lo convertirá y te mostrará unos
+                            formularios</p>
+
+                        <img src="./img/3.png" alt="Imagen 3" class="img img-responsive img-thumbnail">
+                        <p>Dichos formularios son para que interactúes mejor con Dennis, y no tengas que estar
+                            escribiendo.</p>
+                        <p>Puedes mover y cambiar valores a tu gusto.</p>
+
+                        <img src="./img/4.png" alt="Imagen 4" class="img img-responsive img-thumbnail"><br>
+                        <img src="./img/5.png" alt="Imagen 5" class="img img-responsive img-thumbnail"><br>
+                        <img src="./img/6.png" alt="Imagen 6" class="img img-responsive img-thumbnail"><br>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Entendido</button>
                     </div>
                 </div>
 

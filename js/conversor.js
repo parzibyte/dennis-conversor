@@ -12,6 +12,7 @@ var $inputPrincipal = $('input#principal'),
     $selectSegundoGrupo = $('select#segundaUnidad'),
     $inputPrimerGrupo = $('input#inputPrimeraUnidad'),
     $inputSegundoGrupo = $('input#inputSegundaUnidad'),
+    $btnEjemplo = $('button#mostrarEjemplo'),
     $ventanaAcercaDe = $('div#acercaDe'),
     $btnAcercaDe = $('button#btn-about'),
     contador = 0,
@@ -261,6 +262,10 @@ function escuchaElementos() {
     });
     $inputPrincipal.keyup(function () {
         compruebaValores($(this).val());
+    });
+    $btnEjemplo.click(function () {
+
+        $('div#manual').modal('show');
     });
 }
 
