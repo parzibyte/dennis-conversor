@@ -157,8 +157,8 @@ function escribeError(mensaje) {
 }
 
 function escribeResultado(numero, u1, u2, resultado) {
-    var primeraUnidadFinal = (numero >= 2) ? u1 + 's' : u1;
-    var cadenaSegundaUnidad = (resultado >= 2) ? u2 + 's' : u2;
+    var primeraUnidadFinal = (numero !== 1) ? u1 + 's' : u1;
+    var cadenaSegundaUnidad = (resultado !== 1) ? u2 + 's' : u2;
     var cadenaEquivalencia = (numero >= 2) ? " equivalen " : " equivale ";
     var mensaje = '<h5>'
         + '<strong>' + numero.toFixed(cifrasRedondeo) + '</strong>'
