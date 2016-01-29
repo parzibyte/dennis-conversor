@@ -49,12 +49,19 @@ function compruebaValores(oracion) {
                 unidad2 = oracionCortada.u2.toLowerCase();
             if (!isNaN(numero)) {
                 if (numero.length <= limiteLongitudNumeros - 1) {
+                    if (unidad1 === "grado celsius") {
+                        unidad1 += 's';
+                    }
+                    if (unidad2 === "grado celsius") {
+                        unidad2 += 's';
+                    }
                     if (unidad1.slice(-1) === 's') {
                         unidad1 = unidad1.slice(0, -1);
                     }
                     if (unidad2.slice(-1) === 's') {
                         unidad2 = unidad2.slice(0, -1);
                     }
+
                     var grupoUnidad1 = dameGrupo(unidad1),
                         grupoUnidad2 = dameGrupo(unidad2);
                     if (grupoUnidad1 !== false) {
