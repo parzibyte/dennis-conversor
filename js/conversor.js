@@ -207,12 +207,16 @@ function escuchaElementos() {
     });
     $inputPrimerGrupo.keyup(function () {
         if (!isNaN($(this).val())) {
-            convierte(
-                $selectGrupoUnidades.val(),
-                $selectGrupoUnidades.val(),
-                $(this).val(),
-                $selectPrimerGrupo.val(),
-                $selectSegundoGrupo.val());
+            if ($(this).val().length <= limiteLongitudNumeros - 1) {
+                convierte(
+                    $selectGrupoUnidades.val(),
+                    $selectGrupoUnidades.val(),
+                    $(this).val(),
+                    $selectPrimerGrupo.val(),
+                    $selectSegundoGrupo.val());
+            } else {
+                escribeError('Lo siento, solamente se permiten números de <strong>16 cifras</strong> sin incluir el punto decimal');
+            }
         } else {
             escribeError('Ingresa un número en la caja de texto número 1');
         }
@@ -220,12 +224,16 @@ function escuchaElementos() {
     });
     $inputSegundoGrupo.keyup(function () {
         if (!isNaN($(this).val())) {
-            convierte(
-                $selectGrupoUnidades.val(),
-                $selectGrupoUnidades.val(),
-                $(this).val(),
-                $selectPrimerGrupo.val(),
-                $selectSegundoGrupo.val());
+            if ($(this).val().length <= limiteLongitudNumeros - 1) {
+                convierte(
+                    $selectGrupoUnidades.val(),
+                    $selectGrupoUnidades.val(),
+                    $(this).val(),
+                    $selectPrimerGrupo.val(),
+                    $selectSegundoGrupo.val());
+            } else {
+                escribeError('Lo siento, solamente se permiten números de <strong>16 cifras</strong> sin incluir el punto decimal');
+            }
         } else {
             escribeError('Ingresa un número en la caja de texto número 2');
         }
