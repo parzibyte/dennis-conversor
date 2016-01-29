@@ -18,6 +18,7 @@ var $inputPrincipal = $('input#principal'),
     segundosCambiaPlaceholder = 1,
     limiteLongitudNumeros = 16,
     palabrasPermitidas = ["en", "a"],
+    cifrasRedondeo = 5,
     sugerencias = [
         "20 hercios a kilohertz",
         "1 milimetro en pies",
@@ -160,11 +161,11 @@ function escribeResultado(numero, u1, u2, resultado) {
     var cadenaSegundaUnidad = (resultado >= 2) ? u2 + 's' : u2;
     var cadenaEquivalencia = (numero >= 2) ? " equivalen " : " equivale ";
     var mensaje = '<h5>'
-        + '<strong>' + numero + '</strong>'
+        + '<strong>' + numero.toFixed(cifrasRedondeo) + '</strong>'
         + ' '
         + primeraUnidadFinal
         + cadenaEquivalencia + 'a '
-        + '<strong>' + resultado + '</strong>'
+        + '<strong>' + resultado.toFixed(cifrasRedondeo) + '</strong>'
         + ' '
         + cadenaSegundaUnidad
         + '</h5>';
