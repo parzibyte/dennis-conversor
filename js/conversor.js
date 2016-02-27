@@ -279,7 +279,7 @@ function grados(grupo, u1, u2, numero) {
             case "grado fahrenheit":
                 switch (u2) {
                     case "grado fahrenheit":
-                        return 1;
+                        return numero;
                         break;
                     case "grado celsius":
                         return (numero - 32) * (5 / 9);
@@ -295,7 +295,7 @@ function grados(grupo, u1, u2, numero) {
                         return 32 + ((9 / 5) * numero );
                         break;
                     case "grado celsius":
-                        return 1;
+                        return numero;
                         break;
                     case "kelvin":
                         return numero + 273.15;
@@ -311,7 +311,7 @@ function grados(grupo, u1, u2, numero) {
                         return numero - 273.15;
                         break;
                     case "kelvin":
-                        return 1;
+                        return numero;
                         break;
                 }
                 break;
